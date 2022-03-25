@@ -2,7 +2,7 @@ import { getLoggedInUser } from "./auth/UserManager.js"
 import { LoginForm } from "./auth/LoginForm.js";
 import { RegisterForm } from "./auth/RegisterForm.js";
 import { FoodList } from "./menu/FoodsList.js";
-import * as UserManager from "./auth/UserManager.js"
+import * as UserManager from "./auth/UserManager.js";
 
 export const NavBar = () => {
     const headerElement = document.querySelector("header");
@@ -44,6 +44,15 @@ export const NavBar = () => {
         }
     }
 
+    const welcomeMessge = () => {
+        if (getLoggedInUser().id) {
+            const user = getLoggedInUser();
+            return `<div class="welcome-message" id="welcome-message">Welcome, ${user.name}!</div>`
+        } else {
+            return `<div class="welcome-message" id="welcome-message">Log in, Loser.</div>`
+        }
+    }
+
     headerElement.innerHTML = `
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
         
@@ -51,8 +60,8 @@ export const NavBar = () => {
            
                     <img id="logo-nav" src="../assets/images/snackoverflow.svg" alt="Snack Overflow">
                     <span class="navbar-text">
-        Call us to order: <a href="tel:5558675309">555-867-5309</a>
-      </span>
+                        Call us to order: <a href="tel:5558675309">555-867-5309</a>
+                    </span>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -71,5 +80,6 @@ export const NavBar = () => {
                 </div>
             </div>
         </nav>
+        ${welcomeMessge()}
     `
 }
