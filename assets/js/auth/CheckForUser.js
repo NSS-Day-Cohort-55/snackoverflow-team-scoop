@@ -5,6 +5,7 @@ import * as UserManager from "./UserManager.js"
 export const CheckForUser = () => {
     if (sessionStorage.getItem("SOuser")) {
         UserManager.setLoggedInUserAppState(JSON.parse(sessionStorage.getItem("SOuser")));
+        
         NavBar();
         FoodList();
     } else {

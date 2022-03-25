@@ -43,26 +43,21 @@ const headerElement = document.querySelector("header");
 
 
 ///////////// end event listeners /////////////////////
-// if(document.querySelector("#register_name").value !== null && document.querySelector("#register_email").value !== null){
-//     let submitButton  = document.querySelector("#register__submit")
-//     submitButton.disabled = false;
-
-// }
 
 
-// const checkForUser = () => {
-//     if (sessionStorage.getItem("SOUser")){
-//       UserManager.setLoggedInUser(JSON.parse(sessionStorage.getItem("SOUser")));
-//     }
-//       startSO();
-//     }else {
-//       //show login/register
-//       console.log("no user showLogin")
-//     }
+const checkForUser = () => {
+    if (sessionStorage.getItem("SOUser")){
+      UserManager.setLoggedInUser(JSON.parse(sessionStorage.getItem("SOUser")));
+    }
+      startSO();
+    }else {
+      //show login/register
+      console.log("no user showLogin")
+    }
 
-//     NavBar();
-//     contentElement.innerHTML = FoodList();
-//     }
+    NavBar();
+    contentElement.innerHTML = FoodList();
+    }
 
     // const showLoginRegister = () => {
     //     showNavBar();

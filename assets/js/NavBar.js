@@ -44,6 +44,16 @@ export const NavBar = () => {
         }
     }
 
+    const showWelcomeBanner = () => {
+        if (getLoggedInUser().id) {
+            const user = getLoggedInUser()
+            return `<div>Welcome !${user.name}</div>`
+        } else {
+            return `<div></div>`
+        }
+    }
+
+
     headerElement.innerHTML = `
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
         
@@ -71,5 +81,6 @@ export const NavBar = () => {
                 </div>
             </div>
         </nav>
+        ${showWelcomeBanner()}
     `
 }
