@@ -11,6 +11,7 @@ export const NavBar = () => {
         if (event.target.id === "login") {
             showLoginRegister()
         }else if (event.target.id === "menu"){
+            console.log("menu was clicked")
             FoodList();
         }
     })
@@ -60,10 +61,9 @@ export const NavBar = () => {
                     <li class="nav-item">
                         <p class="nav-link" aria-current="page" id="menu">Menu</p>
                     </li>
-                    <!-- Only show my order once you login -->
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
                         <p class="nav-link" id="myOrders">My Orders</p>
-                    </li> -->
+                    </li> 
                     <li class="nav-item">
                     ${showLogin()}
                     </li>

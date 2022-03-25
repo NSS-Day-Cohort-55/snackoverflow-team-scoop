@@ -7,13 +7,14 @@ export const LoginForm = () => {
  
   contentElement.addEventListener("click", event => {
     if (event.target.id === "login__submit"){
+      console.log("login was pushed")
       const userObject = {
         name: document.querySelector("#login_name").value,
         email: document.querySelector("#login_email").value,
       }
       UserManager.loginUser(userObject).then(() => {
         NavBar();
-        FoodList()
+        FoodList();
       })
      
     }

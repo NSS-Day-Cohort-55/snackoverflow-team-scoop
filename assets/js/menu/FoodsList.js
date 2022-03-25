@@ -1,7 +1,8 @@
 import * as MenuManger from './MenuManger.js';
-import { FoodCard } from './FoodCard.js'
+import { FoodCard, foodArea } from './FoodCard.js'
 
 export const FoodList = () => {
+    foodArea();
     const lunchTarget = document.querySelector(".main_lunch")
     const drinkTarget = document.querySelector(".main_drink")
     const appTarget =document.querySelector(".main_app")
