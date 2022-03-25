@@ -28,7 +28,7 @@ export const RegisterForm = () => {
         placeholder="name@place.com" />
   </div>
   <div class="input-group input-group-sm mb-3">
-    <button type="button" class="btn btn-primary" id="register__submit" disabled>Register</button>
+    <button type="button" class="btn btn-primary" id="register__submit">Register</button>
   </div>
 </div>
 	`

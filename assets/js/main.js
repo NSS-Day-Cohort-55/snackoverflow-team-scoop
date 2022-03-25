@@ -13,6 +13,21 @@ import { Footer } from "./Footer.js";
 const contentElement = document.querySelector("main");
 
 ////////////// event listeners ////////////////////////
+contentElement.addEventListener("click", event => {
+    if (event.target.id === "register__submit"){
+        if(document.querySelector("#register_name").value === "" || document.querySelector("#register_email").value === "" ){
+            window.alert("Fill in both fields before pressing Submit")
+
+        } else {
+            const userObject = {
+                    name: document.querySelector("#register_name").value,
+                    email: document.querySelector("#register_email").value,
+            }
+            UserManager.createUser(userObject);
+
+        }
+    }
+})
 
 const headerElement = document.querySelector("header");
 
@@ -24,34 +39,40 @@ const headerElement = document.querySelector("header");
         }
     })
 
+//This is to submit registered users
 
 
 ///////////// end event listeners /////////////////////
+// if(document.querySelector("#register_name").value !== null && document.querySelector("#register_email").value !== null){
+//     let submitButton  = document.querySelector("#register__submit")
+//     submitButton.disabled = false;
+
+// }
 
 
 // const checkForUser = () => {
 //     if (sessionStorage.getItem("SOUser")){
 //       UserManager.setLoggedInUser(JSON.parse(sessionStorage.getItem("SOUser")));
 //     }
-//     //   startSO();
-//     // }else {
-//     //   //show login/register
-//     //   console.log("no user showLogin")
-//     // }
+//       startSO();
+//     }else {
+//       //show login/register
+//       console.log("no user showLogin")
+//     }
 
 //     NavBar();
 //     contentElement.innerHTML = FoodList();
-//   }
+//     }
 
-    const showLoginRegister = () => {
-        showNavBar();
-        const entryElement = document.querySelector(".entryForm");
-        //template strings can be used here too
-        entryElement.innerHTML = `${LoginForm()} <hr/> <hr/> ${RegisterForm()}`;
-        //make sure the post list is cleared out too
-        const postElement = document.querySelector(".postList");
-        postElement.innerHTML = "";
-    }
+    // const showLoginRegister = () => {
+    //     showNavBar();
+    //     const entryElement = document.querySelector(".entryForm");
+    //     //template strings can be used here too
+    //     entryElement.innerHTML = `${LoginForm()} <hr/> <hr/> ${RegisterForm()}`;
+    //     //make sure the post list is cleared out too
+    //     const postElement = document.querySelector(".postList");
+    //     postElement.innerHTML = "";
+    // }
 
 // This function invokes modules in the view
 const startSO = () => {

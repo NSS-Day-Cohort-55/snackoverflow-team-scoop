@@ -1,3 +1,13 @@
+export const foodArea = () => {
+    const htmlPosition = document.querySelector("main")
+    const htmlString =  `
+    <div class="main_lunch"></div>
+    <div class="main_drink"></div>
+    <div class="main_app"></div>
+    <div class="main_dessert"></div>
+    `
+    htmlPosition.innerHTML = htmlString
+}
 export const FoodCard = (foodObj) => {
     let string = ""
     string += ` <div class="col-sm-6 g-4">
