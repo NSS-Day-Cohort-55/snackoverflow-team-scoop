@@ -26,9 +26,8 @@ export const FoodCard = (foodObj) => {
         <form action="/action_page.php">
         <label for="quantity">Quantity:</label>
         <input type="number" id="quantity" name="quantity" min="1" max="100">
-        <input type="submit" value="Submit">
+        <button type="button" class="btn btn-primary">Add to Order</button>
         </form>
-        <button type="button" class="btn btn-primary">Example Bootstrap Button</button>
         </div>
         </div>
         </div>

@@ -8,5 +8,12 @@
 
 
 export const OrderCard = (orderObj) => {
-    htmlPosition = document.querySelector()
+    return `
+    <div class="aside_orderCard">
+        <div class="orderCard_user">${orderObj.user}</div>
+        <div class="orderCard_notes">${orderObj.notes}</div> 
+        <div class="orderCard_time">${orderObj.time}</div>
+        <div class="orderCard_pickedUp">${orderObj.isPickedUp}</div>
+    </div>
+    `
 }

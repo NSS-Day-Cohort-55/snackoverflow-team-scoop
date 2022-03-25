@@ -7,6 +7,7 @@ import { NavBar } from "./NavBar.js";
 import * as UserManager from './auth/UserManager.js'; 
 import { CheckForUser } from "./auth/CheckForUser.js";
 import { Footer } from "./Footer.js";
+import { createAside } from "./orders/orderList.js";
 
 ////////////// app declarations ///////////////////////
 // const headerElement = document.querySelector("header");
@@ -39,25 +40,36 @@ const headerElement = document.querySelector("header");
         }
     })
 
+headerElement.addEventListener("click", event => {
+    if (event.target.id === "allOrders") {
+        createAside();
+    }
+})
+
+headerElement.addEventListener("click", event => {
+    if (event.target.id === "myOrders") {
+        createAside();
+    }
+})
 //This is to submit registered users
 
 
 ///////////// end event listeners /////////////////////
 
 
-const checkForUser = () => {
-    if (sessionStorage.getItem("SOUser")){
-      UserManager.setLoggedInUser(JSON.parse(sessionStorage.getItem("SOUser")));
-    }
-      startSO();
-    }else {
-      //show login/register
-      console.log("no user showLogin")
-    }
+// const checkForUser = () => {
+//     if (sessionStorage.getItem("SOUser")){
+//       UserManager.setLoggedInUser(JSON.parse(sessionStorage.getItem("SOUser")));
+//     }
+//       startSO();
+//     }else {
+//       //show login/register
+//       console.log("no user showLogin")
+//     }
 
-    NavBar();
-    contentElement.innerHTML = FoodList();
-    }
+//     NavBar();
+//     contentElement.innerHTML = FoodList();
+//     }
 
     // const showLoginRegister = () => {
     //     showNavBar();
