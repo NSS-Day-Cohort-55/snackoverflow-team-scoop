@@ -11,7 +11,6 @@ export const NavBar = () => {
         if (event.target.id === "login") {
             showLoginRegister()
         }else if (event.target.id === "menu"){
-            console.log("menu was clicked")
             FoodList();
         }
     })
@@ -53,6 +52,14 @@ export const NavBar = () => {
         }
     }
 
+    const viewAllOrders = () => {
+        if (getLoggedInUser().isAdmin) {
+            return `<p class="nav-link" id="all-orders">All Orders</p>`
+        } else {
+            return ``
+        }
+    }
+
     headerElement.innerHTML = `
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
         
@@ -74,7 +81,10 @@ export const NavBar = () => {
                         <p class="nav-link" id="myOrders">My Orders</p>
                     </li> 
                     <li class="nav-item">
-                    ${showLogin()}
+                        ${viewAllOrders()}
+                    </li> 
+                    <li class="nav-item">
+                        ${showLogin()}
                     </li>
                     </ul>
                 </div>
