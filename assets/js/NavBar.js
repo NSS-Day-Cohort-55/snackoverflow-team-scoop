@@ -43,22 +43,33 @@ export const NavBar = () => {
         }
     }
 
-    const welcomeMessge = () => {
+    const showWelcomeBanner = () => {
         if (getLoggedInUser().id) {
-            const user = getLoggedInUser();
-            return `<div class="welcome-message" id="welcome-message">Welcome, ${user.name}!</div>`
+            const user = getLoggedInUser()
+            return `<div>Welcome !${user.name}</div>`
         } else {
-            return `<div class="welcome-message" id="welcome-message">Log in, Loser.</div>`
+            return `<div></div>`
         }
     }
 
     const viewAllOrders = () => {
-        if (getLoggedInUser().isAdmin) {
-            return `<p class="nav-link" id="all-orders">All Orders</p>`
+        if(getLoggedInUser().isAdmin){
+            return `
+            <li class="nav-item">
+                <p class="nav-link" id="allOrders">All Orders</p>
+            </li> 
+        `
         } else {
-            return ``
+            return `
+            <li class="nav-item">
+                <p class="nav-link" id="myOrders">My Orders</p>
+             </li> 
+            `
         }
     }
+
+
+
 
     headerElement.innerHTML = `
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -77,9 +88,7 @@ export const NavBar = () => {
                     <li class="nav-item">
                         <p class="nav-link" aria-current="page" id="menu">Menu</p>
                     </li>
-                    <li class="nav-item">
-                        <p class="nav-link" id="myOrders">My Orders</p>
-                    </li> 
+                    ${viewAllOrders()}
                     <li class="nav-item">
                         ${viewAllOrders()}
                     </li> 
@@ -90,6 +99,6 @@ export const NavBar = () => {
                 </div>
             </div>
         </nav>
-        ${welcomeMessge()}
+        ${showWelcomeBanner()}
     `
 }
